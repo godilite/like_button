@@ -447,7 +447,7 @@ class LikeButtonState extends State<LikeButton> with TickerProviderStateMixin {
       return;
     }
 
-    if (isLiked != null && isLiked != _isLiked) {
+    if (isLiked != null) {
       if (_likeCount != null) {
         _preLikeCount = _likeCount;
         if (isLiked) {
@@ -460,10 +460,9 @@ class LikeButtonState extends State<LikeButton> with TickerProviderStateMixin {
 
       if (mounted) {
         setState(() {
-          if (_isLiked!) {
             _controller!.reset();
             _controller!.forward();
-          }
+          
           if (widget.likeCountAnimationType != LikeCountAnimationType.none) {
             _likeCountController!.reset();
             _likeCountController!.forward();
